@@ -4,11 +4,9 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Countdown } from "@/components/Countdown";
 import { HeroSection } from "@/components/HeroSection";
-import { MusicToggle } from "@/components/MusicToggle";
 import { NoteSection } from "@/components/NoteSection";
 import { OrderOfDay } from "@/components/OrderOfDay";
 import { OurStoryTimeline } from "@/components/OurStoryTimeline";
-import { RomanticQuote } from "@/components/RomanticQuote";
 import { RSVPForm } from "@/components/RSVPForm";
 import { StoryGallery } from "@/components/StoryGallery";
 import { VenueSection } from "@/components/VenueSection";
@@ -83,9 +81,7 @@ function EnvelopePage({ onOpen }: { onOpen: () => void }) {
               <p className="font-script text-6xl text-blush">
                 {wedding.couple.first} &amp; {wedding.couple.second}
               </p>
-              <p className="mt-4 font-serif-display text-sm tracking-[0.4em]">
-                {wedding.displayDate}
-              </p>
+              <p className="mt-4 font-numeral text-sm tracking-[0.35em]">{wedding.displayDate}</p>
             </div>
           </div>
         ) : (
@@ -156,7 +152,6 @@ function InvitationPage() {
     >
       <div className="mx-auto max-w-[640px] bg-ivory text-ink shadow-2xl">
         <HeroSection />
-        <RomanticQuote />
         <Countdown />
         <WelcomeSection />
         <OurStoryTimeline />
@@ -169,12 +164,11 @@ function InvitationPage() {
           <p className="font-script text-3xl text-blush">
             {wedding.couple.first} &amp; {wedding.couple.second}
           </p>
-          <p className="mt-2 text-[10px] uppercase tracking-[0.5em] text-ivory/60">
+          <p className="mt-2 font-numeral text-[10px] uppercase tracking-[0.42em] text-ivory/60">
             {wedding.displayDate}
           </p>
         </footer>
       </div>
-      <MusicToggle src={wedding.music} />
     </motion.main>
   );
 }

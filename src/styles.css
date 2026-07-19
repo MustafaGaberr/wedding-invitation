@@ -1,7 +1,35 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Noto+Naskh+Arabic:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@400;500&family=Noto+Naskh+Arabic:wght@400;500;600&display=swap");
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
+
+@font-face {
+  font-family: "AM Thulth Regular 0.1";
+  src:
+    url("/AM_Thulth_Regular_0.1.ttf") format("truetype"),
+    local("AM Thulth Regular 0.1"),
+    local("AM Thulth Regular"),
+    local("AM Thulth");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Uni Sans";
+  src: url("/Uni Sans Thin.otf") format("opentype");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Uni Sans";
+  src: url("/Uni Sans Heavy.otf") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
 
 @custom-variant dark (&:is(.dark *));
 
@@ -13,7 +41,10 @@
   --color-paper: #fffdf8;
   --font-script: "Great Vibes", cursive;
   --font-serif-display: "Cormorant Garamond", serif;
+  --font-numeral: "Uni Sans", "Cormorant Garamond", serif;
+  --font-countdown-number: "Montserrat", Arial, sans-serif;
   --font-arabic: "Noto Naskh Arabic", serif;
+  --font-thulth: "AM Thulth Regular 0.1", "Noto Naskh Arabic", serif;
 }
 
 @utility font-script {
@@ -23,8 +54,17 @@
 @utility font-serif-display {
   font-family: var(--font-serif-display);
 }
+@utility font-numeral {
+  font-family: var(--font-numeral);
+}
+@utility font-countdown-number {
+  font-family: var(--font-countdown-number);
+}
 @utility font-arabic {
   font-family: var(--font-arabic);
+}
+@utility font-thulth {
+  font-family: var(--font-thulth);
 }
 
 /*

@@ -83,7 +83,7 @@ export function StoryGallery() {
   return (
     <section className="bg-ivory px-6 pb-24 pt-4 text-ink">
       <div className="mx-auto max-w-md text-center">
-        <p className="text-[10px] uppercase tracking-[0.5em] text-ink/50">Moments together</p>
+        {/* <p className="text-[10px] uppercase tracking-[0.5em] text-ink/50">Moments together</p> */}
         <h2 className="mt-3 font-script text-5xl text-burgundy">A little album</h2>
       </div>
 

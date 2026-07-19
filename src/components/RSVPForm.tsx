@@ -61,9 +61,9 @@ export function RSVPForm() {
   return (
     <section className="bg-ivory px-6 py-24 text-ink">
       <div className="mx-auto max-w-md text-center">
-        <p className="text-[10px] uppercase tracking-[0.5em] text-ink/50">
+        {/* <p className="text-[10px] uppercase tracking-[0.5em] text-ink/50">
           Share your love, wishes, or a note for the happy couple!
-        </p>
+        </p> */}
         <h2 className="mt-3 font-script text-6xl text-burgundy">Leave A Message</h2>
       </div>
 

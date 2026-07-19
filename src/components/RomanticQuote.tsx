@@ -9,7 +9,7 @@ export function RomanticQuote() {
         dir="rtl"
         className="mx-auto flex max-w-xl flex-col items-center gap-4 text-center font-arabic text-lg leading-loose text-ink/90 sm:text-xl"
       >
-        {wedding.quoteAr.map((line, i) => (
+        {wedding.heroQuoteAr.map((line, i) => (
           <motion.p
             key={i}
             initial={{ opacity: 0, y: 16 }}

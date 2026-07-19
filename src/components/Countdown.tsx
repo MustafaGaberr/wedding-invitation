@@ -5,29 +5,43 @@ const pad = (n: number) => n.toString().padStart(2, "0");
 
 export function Countdown() {
   const c = useCountdown(wedding.dateISO);
+  const units = [
+    { label: "Days", value: c.days },
+    { label: "Hours", value: c.hours },
+    { label: "Minutes", value: c.minutes },
+    { label: "Seconds", value: c.seconds },
+  ];
 
   return (
-    <section className="bg-ink px-6 py-20 text-ivory" aria-label="Countdown to the wedding day">
-      <h2 className="text-center text-[10px] uppercase tracking-[0.5em] text-ivory/60">
-        Counting the days
+    <section
+      className="bg-[#ecefd8] px-6 py-10 text-burgundy"
+      aria-label="Countdown to the wedding day"
+    >
+      <h2 className="text-center font-script text-4xl leading-none text-burgundy sm:text-5xl">
+        Countdown
       </h2>
       {c.done ? (
-        <p className="mt-8 text-center font-script text-5xl text-blush">Today is the day 🤍</p>
+        <p className="mt-8 text-center font-script text-5xl text-burgundy">Today is the day</p>
       ) : (
-        <div className="mx-auto mt-8 grid max-w-md grid-cols-4 gap-3 text-center" aria-live="off">
-          {[
-            { label: "Days", value: c.days },
-            { label: "Hours", value: c.hours },
-            { label: "Minutes", value: c.minutes },
-            { label: "Seconds", value: c.seconds },
-          ].map((u) => (
-            <div key={u.label} className="rounded-md border border-ivory/15 bg-ivory/5 px-2 py-4">
-              <div className="font-serif-display text-3xl tabular-nums text-ivory sm:text-4xl">
-                {pad(u.value)}
+        <div
+          className="mx-auto mt-5 flex max-w-md items-start justify-center text-center"
+          aria-live="off"
+        >
+          {units.map((u, index) => (
+            <div key={u.label} className="flex items-start">
+              <div className="w-[4.4rem]">
+                <div className="font-countdown-number text-[2.1rem] font-medium leading-none tabular-nums text-burgundy sm:text-[2.75rem]">
+                  {pad(u.value)}
+                </div>
+                <div className="mt-2 font-serif-display text-[10px] font-semibold uppercase tracking-[0.08em] text-burgundy sm:text-xs">
+                  {u.label}
+                </div>
               </div>
-              <div className="mt-1 text-[10px] uppercase tracking-[0.3em] text-ivory/60">
-                {u.label}
-              </div>
+              {index < units.length - 1 && (
+                <span className="px-1 pt-0.5 font-countdown-number text-[2rem] font-medium leading-none text-burgundy sm:px-2 sm:text-[2.6rem]">
+                  :
+                </span>
+              )}
             </div>
           ))}
         </div>

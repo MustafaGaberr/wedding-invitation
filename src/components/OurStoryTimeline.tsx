@@ -51,9 +51,9 @@ export function OurStoryTimeline() {
   }, []);
 
   return (
-    <section className="bg-ivory px-6 py-24 text-ink" ref={rootRef}>
+    <section className="bg-ivory px-6 pb-24 pt-8 text-ink" ref={rootRef}>
       <div className="mx-auto max-w-xl text-center">
-        <p className="text-[10px] uppercase tracking-[0.5em] text-ink/50">Our Journey</p>
+        {/* <p className="text-[10px] uppercase tracking-[0.5em] text-ink/50">Our Journey</p> */}
         <h2 className="mt-3 font-script text-6xl text-burgundy">Our Story</h2>
       </div>
 

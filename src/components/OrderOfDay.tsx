@@ -36,10 +36,10 @@ export function OrderOfDay() {
   return (
     <section className="bg-ivory px-6 py-24 text-ink" ref={rootRef}>
       <div className="mx-auto max-w-md text-center">
-        <p className="text-[10px] uppercase tracking-[0.5em] text-ink/50">
+        <h2 className="mt-3 font-script text-6xl text-burgundy">Order of the Day</h2>
+        <p className="text-[10px] uppercase tracking-[0.5em] mt-5 text-ink/50">
           What we have planned for you
         </p>
-        <h2 className="mt-3 font-script text-6xl text-burgundy">Order of the Day</h2>
       </div>
 
       <div className="relative mx-auto mt-14 max-w-md">
@@ -51,7 +51,7 @@ export function OrderOfDay() {
           {wedding.schedule.map((item) => (
             <li key={item.time} className="relative pl-10">
               <span className="absolute left-[9px] top-2 grid h-3 w-3 -translate-x-1/2 place-items-center rounded-full bg-burgundy ring-4 ring-ivory" />
-              <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.35em] text-ink/60">
+              <div className="flex items-center gap-2 font-numeral text-[10px] uppercase tracking-[0.25em] text-ink/60">
                 <Clock className="h-3 w-3" strokeWidth={1.4} />
                 {item.time}
               </div>
