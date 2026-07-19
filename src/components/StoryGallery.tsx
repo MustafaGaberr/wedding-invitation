@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion, PanInfo } from "framer-motion";
-import { ChevronLeft, ChevronRight, Camera } from "lucide-react";
+import { Camera } from "lucide-react";
 import { wedding } from "@/data/wedding";
 
 function Placeholder({ index }: { index: number }) {
@@ -74,7 +74,6 @@ export function StoryGallery() {
     ? wedding.gallery.map((src) => ({ src }))
     : Array.from({ length: 8 }, () => ({ src: undefined }));
   const next = () => setIndex((i) => (i + 1) % cards.length);
-  const prev = () => setIndex((i) => (i - 1 + cards.length) % cards.length);
 
   const visible = [0, 1, 2].map((k) => {
     const i = (index + k) % cards.length;
@@ -99,22 +98,8 @@ export function StoryGallery() {
         </AnimatePresence>
       </div>
 
-      <div className="mx-auto mt-6 flex max-w-sm items-center justify-between">
-        <button
-          onClick={prev}
-          aria-label="Previous photo"
-          className="grid h-11 w-11 place-items-center rounded-full border border-ink/20 text-ink transition hover:bg-ink hover:text-ivory"
-        >
-          <ChevronLeft className="h-5 w-5" />
-        </button>
+      <div className="mx-auto mt-6 flex max-w-sm items-center justify-center">
         <p className="text-[10px] uppercase tracking-[0.35em] text-ink/50">Drag to explore</p>
-        <button
-          onClick={next}
-          aria-label="Next photo"
-          className="grid h-11 w-11 place-items-center rounded-full border border-ink/20 text-ink transition hover:bg-ink hover:text-ivory"
-        >
-          <ChevronRight className="h-5 w-5" />
-        </button>
       </div>
     </section>
   );

@@ -14,12 +14,13 @@ export function HeroSection() {
           (e.currentTarget as HTMLImageElement).style.display = "none";
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/30 to-ink/80" />
+      <div className="absolute inset-0 bg-gradient-to-b from-ink/80 via-ink/55 to-ink/90" />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
         className="relative z-10 flex flex-col items-center px-6 text-center"
+        style={{ textShadow: "0 2px 24px rgba(0, 0, 0, 0.65)" }}
       >
         <p className="mb-6 text-xs uppercase tracking-[0.4em] text-ivory/80">
           Together with their families

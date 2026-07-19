@@ -1,22 +1,55 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Countdown } from "@/components/Countdown";
+import { HeroSection } from "@/components/HeroSection";
+import { MusicToggle } from "@/components/MusicToggle";
+import { NoteSection } from "@/components/NoteSection";
+import { OrderOfDay } from "@/components/OrderOfDay";
+import { OurStoryTimeline } from "@/components/OurStoryTimeline";
+import { RomanticQuote } from "@/components/RomanticQuote";
+import { RSVPForm } from "@/components/RSVPForm";
+import { StoryGallery } from "@/components/StoryGallery";
+import { VenueSection } from "@/components/VenueSection";
+import { WelcomeSection } from "@/components/WelcomeSection";
 import { wedding } from "@/data/wedding";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
-export const Route = createFileRoute("/")({
-  component: EnvelopePage,
-});
+gsap.registerPlugin(ScrollTrigger);
 
-function EnvelopePage() {
-  const navigate = useNavigate();
+function getRoute() {
+  return window.location.pathname === "/invitation" ? "/invitation" : "/";
+}
+
+export function App() {
+  const [route, setRoute] = useState(getRoute);
+
+  useEffect(() => {
+    const handlePopState = () => setRoute(getRoute());
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
+
+  const navigate = (to: "/" | "/invitation") => {
+    window.history.pushState({}, "", to);
+    setRoute(to);
+  };
+
+  return route === "/invitation" ? (
+    <InvitationPage />
+  ) : (
+    <EnvelopePage onOpen={() => navigate("/invitation")} />
+  );
+}
+
+function EnvelopePage({ onOpen }: { onOpen: () => void }) {
   const reduced = useReducedMotion();
   const [opening, setOpening] = useState(false);
   const [flash, setFlash] = useState(false);
   const [imgFailed, setImgFailed] = useState(false);
 
   useEffect(() => {
-    // Preload hero image
     const img = new Image();
     img.src = wedding.hero.image;
     document.body.style.overflow = "hidden";
@@ -28,9 +61,9 @@ function EnvelopePage() {
   const open = () => {
     if (opening) return;
     setOpening(true);
-    const dur = reduced ? 400 : 1000;
+    const duration = reduced ? 400 : 1000;
     window.setTimeout(() => setFlash(true), reduced ? 100 : 500);
-    window.setTimeout(() => navigate({ to: "/invitation" }), dur);
+    window.setTimeout(onOpen, duration);
   };
 
   return (
@@ -63,7 +96,6 @@ function EnvelopePage() {
             onError={() => setImgFailed(true)}
           />
         )}
-        {/* vignette */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(34,35,28,0.7)_100%)]" />
       </motion.div>
 
@@ -104,5 +136,47 @@ function EnvelopePage() {
         )}
       </AnimatePresence>
     </div>
+  );
+}
+
+function InvitationPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.body.style.overflow = "";
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      gsap.globalTimeline.clear();
+    };
+  }, []);
+
+  return (
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      className="min-h-screen bg-ink text-ivory"
+    >
+      <div className="mx-auto max-w-[640px] bg-ivory text-ink shadow-2xl">
+        <HeroSection />
+        <RomanticQuote />
+        <Countdown />
+        <WelcomeSection />
+        <OurStoryTimeline />
+        <StoryGallery />
+        <VenueSection />
+        <OrderOfDay />
+        <NoteSection />
+        <RSVPForm />
+        <footer className="bg-ink px-6 py-12 text-center text-ivory">
+          <p className="font-script text-3xl text-blush">
+            {wedding.couple.first} &amp; {wedding.couple.second}
+          </p>
+          <p className="mt-2 text-[10px] uppercase tracking-[0.5em] text-ivory/60">
+            {wedding.displayDate}
+          </p>
+        </footer>
+      </div>
+      <MusicToggle src={wedding.music} />
+    </motion.main>
   );
 }
