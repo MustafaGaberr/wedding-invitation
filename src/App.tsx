@@ -1,5 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
+import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
+import { Globe2, Instagram } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Countdown } from "@/components/Countdown";
@@ -160,15 +162,119 @@ function InvitationPage() {
         <OrderOfDay />
         <NoteSection />
         <RSVPForm />
-        <footer className="bg-ink px-6 py-12 text-center text-ivory">
-          <p className="font-script text-3xl text-blush">
-            {wedding.couple.first} &amp; {wedding.couple.second}
-          </p>
-          <p className="mt-2 font-numeral text-[10px] uppercase tracking-[0.42em] text-ivory/60">
-            {wedding.displayDate}
+        <footer className="bg-ivory px-6 py-10 text-center text-[#5a2e27]">
+          <img
+            src="/line.png"
+            alt=""
+            className="mx-auto mb-7 h-auto w-48 max-w-full opacity-75"
+            loading="lazy"
+          />
+
+          <DesignedByBadge />
+
+          <div className="mt-6 flex items-center justify-center gap-8">
+            <FooterIconLink href="https://wa.me/201097158707" label="Contact on WhatsApp">
+              <WhatsAppIcon className="size-[18px]" />
+            </FooterIconLink>
+            <FooterIconLink href="https://instagram.com/mustafagaberr" label="Instagram">
+              <Instagram aria-hidden="true" className="size-[17px]" strokeWidth={2.4} />
+            </FooterIconLink>
+            <FooterIconLink href="https://Gabourr.com" label="Gabour website">
+              <Globe2 aria-hidden="true" className="size-[17px]" strokeWidth={2.4} />
+            </FooterIconLink>
+          </div>
+
+          <p className="mt-5 font-serif-display text-[12px] font-semibold leading-none">
+            © 2026 Gabour. all rights reserved
           </p>
         </footer>
       </div>
     </motion.main>
+  );
+}
+
+function DesignedByBadge() {
+  return (
+    <a
+      href="https://Gabourr.com"
+      target="_blank"
+      rel="noreferrer"
+      className="relative mx-auto flex h-[25px] w-[234px] max-w-full items-center justify-center font-serif-display text-[9px] font-semibold uppercase tracking-[0.06em] text-[#5a2e27] transition-opacity hover:opacity-75 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5a2e27]/45"
+      aria-label="Designed by Gabour"
+    >
+      <FooterBadgeFrame className="absolute inset-0 h-full w-full" />
+      <span className="relative z-10 translate-y-px">Designed by Gabour</span>
+    </a>
+  );
+}
+
+function FooterIconLink({
+  href,
+  label,
+  children,
+}: {
+  href: string;
+  label: string;
+  children: ReactNode;
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={label}
+      className="flex size-5 items-center justify-center text-[#5a2e27] transition-transform hover:scale-110 hover:text-[#692219] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5a2e27]/45"
+    >
+      {children}
+    </a>
+  );
+}
+
+function FooterBadgeFrame({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="xMidYMid meet"
+      viewBox="0 0 234 25"
+      className={className}
+      aria-hidden="true"
+    >
+      <g>
+        <path
+          d="M229.4,25H4.6C2.1,25,0,22.9,0,20.4V4.6C0,2.1,2.1,0,4.6,0h224.8c2.5,0,4.6,2.1,4.6,4.6v15.8 C234,22.9,231.9,25,229.4,25z M4.6,1C2.6,1,1,2.6,1,4.6v15.8c0,2,1.6,3.6,3.6,3.6h224.8c2,0,3.6-1.6,3.6-3.6V4.6 c0-2-1.6-3.6-3.6-3.6H4.6z"
+          fill="currentColor"
+        />
+      </g>
+      <g>
+        <path
+          d="M214.5,17.9c-0.3-0.3-0.5-0.7-0.5-1.1l0.1-8.6c0-0.9,0.7-1.6,1.6-1.6l8.6,0.1c0.9,0,1.6,0.7,1.6,1.6 l-0.1,8.6c0,0.4-0.2,0.8-0.5,1.1s-0.7,0.5-1.1,0.5l-8.6-0.1C215.2,18.4,214.8,18.2,214.5,17.9z M224.8,7.8 c-0.1-0.1-0.3-0.2-0.4-0.2l-8.6-0.1c-0.3,0-0.6,0.3-0.6,0.6l-0.1,8.6c0,0.3,0.3,0.6,0.6,0.6l8.6,0.1c0.2,0,0.3-0.1,0.4-0.2 c0.1-0.1,0.2-0.3,0.2-0.4l0.1-8.6C225,8.1,224.9,7.9,224.8,7.8z"
+          fill="currentColor"
+        />
+      </g>
+      <path d="M221 0H222V6.7H221z" fill="currentColor" />
+      <path d="M221 17.7H222V25H221z" fill="currentColor" />
+      <path d="M218 0H219V6.7H218z" fill="currentColor" />
+      <path d="M218 17.7H219V25H218z" fill="currentColor" />
+      <g>
+        <path
+          d="M8.5,17.9C8.2,17.6,8,17.2,8,16.7l0.1-8.6c0-0.9,0.7-1.6,1.6-1.6l8.6,0.1c0.9,0,1.6,0.7,1.6,1.6l-0.1,8.6 c0,0.4-0.2,0.8-0.5,1.1s-0.7,0.5-1.1,0.5l-8.6-0.1C9.2,18.4,8.8,18.2,8.5,17.9z M18.8,7.8c-0.1-0.1-0.3-0.2-0.4-0.2L9.7,7.5 c-0.3,0-0.6,0.3-0.6,0.6L9,16.8c0,0.3,0.3,0.6,0.6,0.6l8.6,0.1c0.2,0,0.3-0.1,0.4-0.2c0.1-0.1,0.2-0.3,0.2-0.4L19,8.2 C19,8.1,18.9,7.9,18.8,7.8z"
+          fill="currentColor"
+        />
+      </g>
+      <path d="M15 0H16V6.7H15z" fill="currentColor" />
+      <path d="M15 17.7H16V25H15z" fill="currentColor" />
+      <path d="M12 0H13V6.7H12z" fill="currentColor" />
+      <path d="M12 17.7H13V25H12z" fill="currentColor" />
+      <circle cx="14" cy="12.5" r="2.8" fill="currentColor" />
+      <circle cx="220" cy="12.5" r="2.8" fill="currentColor" />
+    </svg>
+  );
+}
+
+function WhatsAppIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 32 32" className={className} aria-hidden="true" fill="currentColor">
+      <path d="M16.02 4a11.86 11.86 0 0 0-10.1 18.08L4.62 28l6.05-1.59A11.88 11.88 0 1 0 16.02 4Zm0 2.06a9.8 9.8 0 0 1 8.31 14.99 9.79 9.79 0 0 1-12.9 3.3l-.43-.25-3.6.95.96-3.51-.28-.45A9.8 9.8 0 0 1 16.02 6.06Zm-4.13 4.61c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.08 3.33 5.13 4.54 2.54 1 3.06.8 3.61.75.55-.05 1.78-.73 2.03-1.43.25-.7.25-1.31.17-1.43-.08-.13-.28-.2-.58-.35-.3-.15-1.78-.88-2.05-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.96 1.18-.18.2-.35.23-.65.08-.3-.15-1.27-.47-2.42-1.5-.89-.8-1.5-1.78-1.67-2.08-.18-.3-.02-.47.13-.62.14-.14.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.08-.15-.68-1.63-.93-2.23-.24-.58-.49-.5-.68-.51h-.58Z" />
+    </svg>
   );
 }

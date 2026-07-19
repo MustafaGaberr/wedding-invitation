@@ -16,6 +16,15 @@
 }
 
 @font-face {
+  font-family: "Wedding Numerals";
+  src: local("Times New Roman");
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  unicode-range: U+002B, U+002D, U+002E, U+002F, U+0030-003A, U+0660-0669, U+06F0-06F9;
+}
+
+@font-face {
   font-family: "Uni Sans";
   src: url("/Uni Sans Thin.otf") format("opentype");
   font-style: normal;
@@ -39,12 +48,13 @@
   --color-blush: #e8aaa5;
   --color-burgundy: #692219;
   --color-paper: #fffdf8;
-  --font-script: "Great Vibes", cursive;
-  --font-serif-display: "Cormorant Garamond", serif;
-  --font-numeral: "Uni Sans", "Cormorant Garamond", serif;
-  --font-countdown-number: "Montserrat", Arial, sans-serif;
-  --font-arabic: "Noto Naskh Arabic", serif;
-  --font-thulth: "AM Thulth Regular 0.1", "Noto Naskh Arabic", serif;
+  --default-font-family: "Wedding Numerals", ui-sans-serif, system-ui, sans-serif;
+  --font-script: "Wedding Numerals", "Great Vibes", cursive;
+  --font-serif-display: "Wedding Numerals", "Cormorant Garamond", serif;
+  --font-numeral: "Wedding Numerals", "Uni Sans", "Cormorant Garamond", serif;
+  --font-countdown-number: "Wedding Numerals", "Montserrat", Arial, sans-serif;
+  --font-arabic: "Wedding Numerals", "Noto Naskh Arabic", serif;
+  --font-thulth: "Wedding Numerals", "AM Thulth Regular 0.1", "Noto Naskh Arabic", serif;
 }
 
 @utility font-script {
