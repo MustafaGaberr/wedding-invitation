@@ -8,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function OurStoryTimeline() {
   const rootRef = useRef<HTMLDivElement | null>(null);
+  const timelineRef = useRef<HTMLDivElement | null>(null);
   const pathHeight = 1120;
   const segmentHeight = pathHeight / wedding.story.length;
   const storyPath = wedding.story.reduce((path, _event, i) => {
@@ -40,9 +41,9 @@ export function OurStoryTimeline() {
             strokeDashoffset: 0,
             ease: "none",
             scrollTrigger: {
-              trigger: rootRef.current,
-              start: "top 74%",
-              end: "bottom 42%",
+              trigger: timelineRef.current,
+              start: "top center",
+              end: "bottom center",
               scrub: true,
               invalidateOnRefresh: true,
             },
@@ -60,7 +61,7 @@ export function OurStoryTimeline() {
         <h2 className="mt-3 font-script text-6xl text-burgundy">Our Story</h2>
       </div>
 
-      <div className="relative mx-auto mt-16 max-w-[560px]">
+      <div className="relative mx-auto mt-16 max-w-[560px]" ref={timelineRef}>
         <svg
           aria-hidden="true"
           className="pointer-events-none absolute left-1/2 top-0 z-0 h-full w-32 -translate-x-1/2 overflow-visible sm:w-44"
