@@ -4,7 +4,7 @@ import { Pause } from "lucide-react";
 
 type MusicState = "idle" | "playing" | "paused";
 
-export function MusicToggle({ src }: { src: string }) {
+export function MusicToggle({ src, autoPlay = false }: { src: string; autoPlay?: boolean }) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [musicState, setMusicState] = useState<MusicState>("idle");
   const [available, setAvailable] = useState(true);
@@ -23,11 +23,16 @@ export function MusicToggle({ src }: { src: string }) {
     );
     a.addEventListener("play", () => setMusicState("playing"));
     audioRef.current = a;
+
+    if (autoPlay) {
+      a.play().catch(() => setMusicState("paused"));
+    }
+
     return () => {
       a.pause();
       audioRef.current = null;
     };
-  }, [src]);
+  }, [src, autoPlay]);
 
   const toggle = async () => {
     const a = audioRef.current;
@@ -39,19 +44,21 @@ export function MusicToggle({ src }: { src: string }) {
         await a.play();
       }
     } catch {
-      setAvailable(false);
+      setMusicState("paused");
     }
   };
 
   if (!src || !available) return null;
+
+  const isPlaying = musicState === "playing";
 
   return (
     <motion.button
       onClick={toggle}
       whileTap={{ scale: 0.92 }}
       whileHover={{ scale: 1.04 }}
-      aria-label={musicState === "playing" ? "Pause music" : "Play music"}
-      aria-pressed={musicState === "playing"}
+      aria-label={isPlaying ? "Pause music" : "Play music"}
+      aria-pressed={isPlaying}
       className="absolute left-1/2 top-8 z-20 flex h-20 w-36 -translate-x-1/2 items-center justify-center rounded-full text-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.35)] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
     >
       <svg
@@ -64,11 +71,11 @@ export function MusicToggle({ src }: { src: string }) {
         </defs>
         <text className="fill-white font-serif-display text-[12px] font-medium uppercase tracking-[0.3em]">
           <textPath href="#music-label-arc" startOffset="50%" textAnchor="middle">
-            PLAY MUSIC
+            {isPlaying ? "PAUSE MUSIC" : "PLAY MUSIC"}
           </textPath>
         </text>
       </svg>
-      {musicState === "playing" ? (
+      {isPlaying ? (
         <Pause className="mt-6 h-6 w-6 fill-white text-white" strokeWidth={2.4} />
       ) : (
         <motion.svg
