@@ -96,23 +96,21 @@ function EnvelopePage({ onOpen }: { onOpen: () => void }) {
             onError={() => setImgFailed(true)}
           />
         )}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(34,35,28,0.7)_100%)]" />
       </motion.div>
 
       <AnimatePresence>
         {!opening && (
           <motion.div
             key="cta"
-            initial={{ opacity: 0, y: 10 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="absolute inset-x-0 bottom-16 z-10 flex flex-col items-center text-ivory"
+            className="absolute inset-x-0 top-[63%] z-10 flex -translate-y-1/2 flex-col items-center text-white"
           >
-            <p lang="ar" dir="rtl" className="font-arabic text-xl tracking-wide text-ivory">
-              اضغط لفتح الدعوة
+            <p className="text-[11px] font-extrabold uppercase leading-none tracking-tight text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)]">
+              Click to open
             </p>
-            <p className="mt-2 text-[10px] uppercase tracking-[0.5em] text-ivory/70">Tap to open</p>
           </motion.div>
         )}
       </AnimatePresence>
