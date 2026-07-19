@@ -37,12 +37,12 @@ export function VenueSection() {
           href={venue.mapsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mx-auto mt-8 block w-full max-w-xs rounded-lg bg-ivory p-5 text-ink shadow-lg transition hover:scale-[1.02]"
+          className="mx-auto mt-8 block w-full max-w-xs rounded-lg border border-ivory/15 p-5 text-ivory shadow-lg transition hover:scale-[1.02]"
           aria-label="Open venue location in Google Maps"
         >
-          <div className="grid aspect-square w-full place-items-center overflow-hidden rounded bg-paper">
+          <div className="grid aspect-square w-full place-items-center overflow-hidden rounded bg-transparent">
             {qrMissing ? (
-              <div className="text-center text-ink/50">
+              <div className="text-center text-ivory/50">
                 <ScanLine className="mx-auto h-10 w-10" strokeWidth={1.2} />
                 <p className="mt-2 text-[10px] uppercase tracking-[0.3em]">QR placeholder</p>
               </div>
@@ -56,7 +56,7 @@ export function VenueSection() {
               />
             )}
           </div>
-          <div className="mt-3 flex items-center justify-center gap-2 text-[11px] uppercase tracking-[0.3em] text-ink/70">
+          <div className="mt-3 flex items-center justify-center gap-2 text-[11px] uppercase tracking-[0.3em] text-ivory/70">
             <ScanLine className="h-4 w-4" strokeWidth={1.4} />
             Tap or scan for location
           </div>
