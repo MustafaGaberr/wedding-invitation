@@ -207,7 +207,7 @@ function InvitationPage() {
 
           <div className="mt-7 flex items-center justify-center gap-9">
             <FooterIconLink href="https://wa.me/201097158707" label="Contact on WhatsApp">
-              <WhatsAppIcon className="size-[22px]" />
+              <WhatsAppIcon className="size-[25px]" />
             </FooterIconLink>
             <FooterIconLink href="https://instagram.com/mustafagaberr" label="Instagram">
               <Instagram aria-hidden="true" className="size-[21px]" strokeWidth={2.4} />

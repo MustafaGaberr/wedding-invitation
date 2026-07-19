@@ -118,11 +118,11 @@ export function OurStoryTimeline() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
-                className="relative isolate overflow-hidden rounded-lg border border-white/60 bg-white/40 px-5 pb-5 pt-6 text-center shadow-[0_20px_48px_rgba(34,35,28,0.14),inset_0_1px_0_rgba(255,255,255,0.72)] backdrop-blur-2xl"
+                className="relative isolate overflow-hidden rounded-lg border border-burgundy/14 bg-[#e8aaa5]/10 px-5 pb-5 pt-6 text-center shadow-[0_20px_48px_rgba(34,35,28,0.12),inset_0_1px_0_rgba(255,255,255,0.42)] backdrop-blur-2xl"
               >
                 <div
                   aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.5),rgba(255,255,255,0.08)_42%,rgba(105,34,25,0.08))]"
+                  className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.24),rgba(232,170,165,0.08)_44%,rgba(105,34,25,0.08))]"
                 />
                 <p className="relative z-10 text-[10px] uppercase tracking-[0.35em] text-burgundy/60">
                   {event.date}
@@ -141,7 +141,7 @@ export function OurStoryTimeline() {
                     ),
                   )}
                 </p>
-                <div className="relative z-10 mt-6 rounded-md border border-white/50 bg-white/26 p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.62),0_14px_30px_rgba(34,35,28,0.1)] backdrop-blur-xl">
+                <div className="relative z-10 mt-6 rounded-md border border-burgundy/12 bg-[#692219]/5 p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.34),0_14px_30px_rgba(34,35,28,0.1)] backdrop-blur-xl">
                   <div
                     aria-hidden="true"
                     className="pointer-events-none absolute inset-x-10 -top-px h-px bg-burgundy/25"
@@ -157,7 +157,7 @@ export function OurStoryTimeline() {
                       <button
                         key={image}
                         type="button"
-                        className="group overflow-hidden rounded-md border border-white/75 bg-paper shadow-[0_10px_24px_rgba(34,35,28,0.14)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_30px_rgba(34,35,28,0.18)] focus:outline-none focus-visible:ring-2 focus-visible:ring-burgundy/45"
+                        className="group overflow-hidden rounded-md border border-burgundy/10 bg-transparent shadow-[0_10px_24px_rgba(34,35,28,0.14)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_30px_rgba(34,35,28,0.18)] focus:outline-none focus-visible:ring-2 focus-visible:ring-burgundy/45"
                         onClick={() =>
                           setSelectedImage({
                             src: image,

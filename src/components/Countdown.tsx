@@ -14,7 +14,7 @@ export function Countdown() {
 
   return (
     <section
-      className="bg-[#ecefd8] px-6 py-10 text-burgundy"
+      className="border-y border-burgundy/10 bg-[#e8aaa5]/10 px-6 py-10 text-burgundy shadow-[inset_0_1px_0_rgba(255,255,255,0.36),inset_0_-1px_0_rgba(105,34,25,0.06)] backdrop-blur-2xl"
       aria-label="Countdown to the wedding day"
     >
       <h2 className="text-center font-script text-4xl leading-none text-burgundy sm:text-5xl">
