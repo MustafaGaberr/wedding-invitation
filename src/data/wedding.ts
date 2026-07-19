@@ -33,6 +33,7 @@ export const wedding = {
     {
       title: "First Meeting",
       date: "July 2, 2024",
+      images: ["/gallery/1.jpeg"],
       textParts: [
         {
           type: "en",
@@ -49,6 +50,7 @@ export const wedding = {
     {
       title: "Meeting Her Family",
       date: "May 9, 2025",
+      images: ["/gallery/2.jpeg", "/gallery/3.jpeg"],
       textParts: [
         {
           type: "en",
@@ -60,6 +62,7 @@ export const wedding = {
     {
       title: "The Ring Ceremony",
       date: "June 13, 2025",
+      images: ["/gallery/4.jpeg", "/gallery/5.jpeg"],
       textParts: [
         {
           type: "en",
@@ -71,6 +74,7 @@ export const wedding = {
     {
       title: "Our Engagement",
       date: "August 1, 2025",
+      images: ["/gallery/6.jpeg"],
       textParts: [
         {
           type: "en",
@@ -82,6 +86,7 @@ export const wedding = {
     {
       title: "The Day of Our Forever",
       date: "August 8, 2026",
+      images: ["/gallery/7.jpeg"],
       textParts: [
         {
           type: "en",
@@ -164,8 +169,7 @@ export const wedding = {
       time: "11:00 PM",
       title: "Farewell",
       note: "Until We Meet Again",
-      description:
-        "Thank you for being part of one of the most meaningful days of our lives. 🤍",
+      description: "Thank you for being part of one of the most meaningful days of our lives. 🤍",
     },
   ],
   noteAr:

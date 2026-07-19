@@ -90,7 +90,7 @@ export function OurStoryTimeline() {
         </svg>
         <ol className="relative z-10 flex flex-col items-center gap-14 sm:gap-[4.5rem]">
           {wedding.story.map((event, i) => (
-            <li key={i} className="relative mx-auto w-full max-w-[330px] sm:max-w-[380px]">
+            <li key={i} className="relative mx-auto w-full max-w-[360px] sm:max-w-[430px]">
               <span
                 aria-hidden="true"
                 className="absolute left-1/2 top-0 z-20 size-3 -translate-x-1/2 -translate-y-1/2 rounded-full border border-burgundy/75 bg-ivory shadow-[0_0_0_5px_rgba(105,34,25,0.08),0_0_16px_rgba(105,34,25,0.28)]"
@@ -124,6 +124,31 @@ export function OurStoryTimeline() {
                   )}
                 </p>
               </motion.article>
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.25 }}
+                transition={{ duration: 0.7, ease: "easeOut", delay: 0.08 }}
+                className={`mt-5 ${
+                  event.images.length > 1
+                    ? "grid grid-cols-2 gap-3"
+                    : "mx-auto w-full max-w-[310px]"
+                }`}
+              >
+                {event.images.map((image, imageIndex) => (
+                  <figure
+                    key={image}
+                    className="overflow-hidden rounded-md border border-burgundy/10 bg-paper shadow-[0_14px_34px_rgba(34,35,28,0.16)]"
+                  >
+                    <img
+                      src={image}
+                      alt={`${event.title} memory ${imageIndex + 1}`}
+                      className="aspect-[4/5] w-full object-cover"
+                      loading="lazy"
+                    />
+                  </figure>
+                ))}
+              </motion.div>
             </li>
           ))}
         </ol>

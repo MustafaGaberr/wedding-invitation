@@ -10,7 +10,6 @@ import { NoteSection } from "@/components/NoteSection";
 import { OrderOfDay } from "@/components/OrderOfDay";
 import { OurStoryTimeline } from "@/components/OurStoryTimeline";
 import { RSVPForm } from "@/components/RSVPForm";
-import { StoryGallery } from "@/components/StoryGallery";
 import { VenueSection } from "@/components/VenueSection";
 import { WelcomeSection } from "@/components/WelcomeSection";
 import { wedding } from "@/data/wedding";
@@ -157,7 +156,6 @@ function InvitationPage() {
         <Countdown />
         <WelcomeSection />
         <OurStoryTimeline />
-        <StoryGallery />
         <VenueSection />
         <OrderOfDay />
         <NoteSection />
