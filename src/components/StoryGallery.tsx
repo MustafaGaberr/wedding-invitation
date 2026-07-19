@@ -99,7 +99,7 @@ export function StoryGallery() {
       </div>
 
       <div className="mx-auto mt-6 flex max-w-sm items-center justify-center">
-        <p className="text-[10px] uppercase tracking-[0.35em] text-ink/50">Drag to explore</p>
+        {/* <p className="text-[10px] uppercase tracking-[0.35em] text-ink/50">Drag to explore</p> */}
       </div>
     </section>
   );

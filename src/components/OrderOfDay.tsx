@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Clock } from "lucide-react";
 import { wedding } from "@/data/wedding";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -12,14 +11,15 @@ export function OrderOfDay() {
   useEffect(() => {
     if (!rootRef.current) return;
     const ctx = gsap.context(() => {
-      const line = rootRef.current!.querySelector<HTMLElement>("[data-schedule-line]");
-      if (line) {
+      const lines = gsap.utils.toArray<HTMLElement>("[data-schedule-line]");
+      if (lines.length) {
         gsap.fromTo(
-          line,
+          lines,
           { scaleY: 0 },
           {
             scaleY: 1,
             ease: "none",
+            stagger: 0.12,
             scrollTrigger: {
               trigger: rootRef.current,
               start: "top 75%",
@@ -42,21 +42,23 @@ export function OrderOfDay() {
         </p>
       </div>
 
-      <div className="relative mx-auto mt-14 max-w-md">
-        <div
-          data-schedule-line
-          className="absolute left-4 top-2 h-[calc(100%-1rem)] w-px origin-top bg-ink/25"
-        />
-        <ol className="space-y-8">
-          {wedding.schedule.map((item) => (
-            <li key={item.time} className="relative pl-10">
-              <span className="absolute left-[9px] top-2 grid h-3 w-3 -translate-x-1/2 place-items-center rounded-full bg-burgundy ring-4 ring-ivory" />
-              <div className="flex items-center gap-2 font-numeral text-[10px] uppercase tracking-[0.25em] text-ink/60">
-                <Clock className="h-3 w-3" strokeWidth={1.4} />
+      <div className="mx-auto mt-14 max-w-md">
+        <ol>
+          {wedding.schedule.map((item, index) => (
+            <li key={item.time} className="text-center">
+              <div className="font-numeral text-sm uppercase tracking-[0.22em] text-ink/65">
                 {item.time}
               </div>
-              <h3 className="mt-1 font-serif-display text-xl text-ink">{item.title}</h3>
-              {item.note && <p className="mt-0.5 text-sm italic text-ink/60">{item.note}</p>}
+              <h3 className="mt-2 font-serif-display text-xl uppercase tracking-[0.16em] text-ink">
+                {item.title}
+              </h3>
+              {item.note && <p className="mt-1 text-sm italic text-ink/60">{item.note}</p>}
+              {index < wedding.schedule.length - 1 && (
+                <div
+                  data-schedule-line
+                  className="mx-auto my-9 h-14 w-px origin-top bg-burgundy/45"
+                />
+              )}
             </li>
           ))}
         </ol>

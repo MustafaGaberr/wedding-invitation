@@ -70,7 +70,7 @@ export function VenueSection() {
           href={venue.mapsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mx-auto mt-8 block w-full max-w-xs rounded-lg border border-burgundy/15 p-5 text-burgundy shadow-sm transition hover:scale-[1.02]"
+          className="mx-auto mt-8 block w-full max-w-xs rounded-lg p-5 text-burgundy shadow-sm transition hover:scale-[1.02]"
           aria-label="Open venue location in Google Maps"
         >
           <div className="grid aspect-square w-full place-items-center overflow-hidden rounded bg-transparent">

@@ -162,29 +162,29 @@ function InvitationPage() {
         <OrderOfDay />
         <NoteSection />
         <RSVPForm />
-        <footer className="bg-ivory px-6 py-10 text-center text-[#5a2e27]">
+        <footer className="bg-ivory px-6 py-12 text-center text-[#5a2e27]">
           <img
             src="/line.png"
             alt=""
-            className="mx-auto mb-7 h-auto w-48 max-w-full opacity-75"
+            className="mx-auto mb-8 h-auto w-56 max-w-full opacity-75"
             loading="lazy"
           />
 
           <DesignedByBadge />
 
-          <div className="mt-6 flex items-center justify-center gap-8">
+          <div className="mt-7 flex items-center justify-center gap-9">
             <FooterIconLink href="https://wa.me/201097158707" label="Contact on WhatsApp">
-              <WhatsAppIcon className="size-[18px]" />
+              <WhatsAppIcon className="size-[22px]" />
             </FooterIconLink>
             <FooterIconLink href="https://instagram.com/mustafagaberr" label="Instagram">
-              <Instagram aria-hidden="true" className="size-[17px]" strokeWidth={2.4} />
+              <Instagram aria-hidden="true" className="size-[21px]" strokeWidth={2.4} />
             </FooterIconLink>
             <FooterIconLink href="https://Gabourr.com" label="Gabour website">
-              <Globe2 aria-hidden="true" className="size-[17px]" strokeWidth={2.4} />
+              <Globe2 aria-hidden="true" className="size-[21px]" strokeWidth={2.4} />
             </FooterIconLink>
           </div>
 
-          <p className="mt-5 font-serif-display text-[12px] font-semibold leading-none">
+          <p className="mt-6 font-serif-display text-[14px] font-semibold leading-none">
             © 2026 Gabour. all rights reserved
           </p>
         </footer>
@@ -199,7 +199,7 @@ function DesignedByBadge() {
       href="https://Gabourr.com"
       target="_blank"
       rel="noreferrer"
-      className="relative mx-auto flex h-[25px] w-[234px] max-w-full items-center justify-center font-serif-display text-[9px] font-semibold uppercase tracking-[0.06em] text-[#5a2e27] transition-opacity hover:opacity-75 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5a2e27]/45"
+      className="relative mx-auto flex h-[31px] w-[286px] max-w-full items-center justify-center font-serif-display text-[11px] font-semibold uppercase tracking-[0.06em] text-[#5a2e27] transition-opacity hover:opacity-75 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5a2e27]/45"
       aria-label="Designed by Gabour"
     >
       <FooterBadgeFrame className="absolute inset-0 h-full w-full" />
@@ -223,7 +223,7 @@ function FooterIconLink({
       target="_blank"
       rel="noreferrer"
       aria-label={label}
-      className="flex size-5 items-center justify-center text-[#5a2e27] transition-transform hover:scale-110 hover:text-[#692219] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5a2e27]/45"
+      className="flex size-7 items-center justify-center text-[#5a2e27] transition-transform hover:scale-110 hover:text-[#692219] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5a2e27]/45"
     >
       {children}
     </a>
