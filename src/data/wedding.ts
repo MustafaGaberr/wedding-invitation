@@ -109,12 +109,64 @@ export const wedding = {
     mapsUrl: "https://www.google.com/maps?q=29.9400801,31.2742301&z=17&hl=en",
   },
   schedule: [
-    { time: "8:00 PM", title: "Reception", note: "Guest arrival" },
-    { time: "8:30 PM", title: "El Maazoun & Katb El Ketab" },
-    { time: "9:30 PM", title: "Making Memories", note: "Taking pictures together" },
-    { time: "10:00 PM", title: "High Tea & Celebrations", note: "Eat together" },
-    { time: "10:45 PM", title: "Bouquet Toss" },
-    { time: "11:00 PM", title: "Farewell" },
+    {
+      time: "8:00 PM",
+      title: "Reception",
+      note: "Guest Arrival",
+      description: "Welcome, find your seat, and get ready to celebrate with us.",
+    },
+    {
+      time: "8:30 PM",
+      title: "Katb El Ketab",
+      note: "The Beginning of Our Forever",
+      description: "The moment we officially become husband and wife.",
+    },
+    {
+      time: "9:00 PM",
+      title: "Congratulations",
+      note: "Celebrate With Us",
+      description:
+        "Share this special moment with us, exchange hugs, smiles, and heartfelt congratulations.",
+    },
+    {
+      time: "9:20 PM",
+      title: "Live Music",
+      note: "Music That Speaks to the Heart",
+      description: "Enjoy a selection of beautiful live violin melodies and heartfelt songs.",
+    },
+    {
+      time: "9:45 PM",
+      title: "Making Memories",
+      note: "Capture Every Smile",
+      description:
+        "Take photos with us, leave us a message, record a voice note, and share your favorite moments using the QR code.",
+    },
+    {
+      time: "10:00 PM",
+      title: "High Tea",
+      note: "Eat, Talk & Celebrate",
+      description:
+        "Let's enjoy delicious food, warm conversations, and a wonderful evening together.",
+    },
+    {
+      time: "10:45 PM",
+      title: "Bouquet Toss",
+      note: "A Little Tradition & A Lot of Fun",
+      description: "Let's see who might be celebrating next! 💐",
+    },
+    {
+      time: "10:50 PM",
+      title: "Our Wish sky lantern",
+      note: "One Wish, One Forever",
+      description: "A quiet moment for us to make a wish for the beautiful journey ahead.",
+    },
+    {
+      time: "11:00 PM",
+      title: "Farewell",
+      note: "Until We Meet Again",
+      description:
+        "Thank you for being part of one of the most meaningful days of our lives. 🤍",
+    },
   ],
   noteAr:
     "أحم… إحنا عارفين إنه فرح والله، بس طريقتنا في الفرحة هتكون بوجودكم معانا أكتر من أي حاجة، فخلّونا نفرح سوا من غير ما نرقص.\n\nساعدونا نبدأ أول يوم في حياتنا بداية جميلة 🤍",

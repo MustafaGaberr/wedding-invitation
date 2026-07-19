@@ -53,6 +53,11 @@ export function OrderOfDay() {
                 {item.title}
               </h3>
               {item.note && <p className="mt-1 text-sm italic text-ink/60">{item.note}</p>}
+              {item.description && (
+                <p className="mx-auto mt-3 max-w-[32ch] text-sm leading-relaxed text-ink/70">
+                  {item.description}
+                </p>
+              )}
               {index < wedding.schedule.length - 1 && (
                 <div
                   data-schedule-line
