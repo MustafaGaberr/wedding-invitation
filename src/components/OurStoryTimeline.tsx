@@ -42,8 +42,8 @@ export function OurStoryTimeline() {
             ease: "none",
             scrollTrigger: {
               trigger: timelineRef.current,
-              start: "top center",
-              end: "bottom center",
+              start: "top 140%",
+              end: "bottom 140%",
               scrub: true,
               invalidateOnRefresh: true,
             },
