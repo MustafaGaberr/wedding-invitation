@@ -3,7 +3,7 @@ export const wedding = {
   dateISO: "2026-08-08T20:00:00+03:00",
   displayDate: "08.08.2026",
   displayTime: "8 O'Clock",
-  hero: { image: "/envelope.jpg" },
+  hero: { image: "/hero.png" },
   envelope: { image: "/envelope.jpg" },
   music: "",
   quoteAr: [
