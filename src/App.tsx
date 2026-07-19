@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { useEffect, useState } from "react";
 import { Globe2, Instagram } from "lucide-react";
 import { gsap } from "gsap";
@@ -10,12 +10,42 @@ import { NoteSection } from "@/components/NoteSection";
 import { OrderOfDay } from "@/components/OrderOfDay";
 import { OurStoryTimeline } from "@/components/OurStoryTimeline";
 import { RSVPForm } from "@/components/RSVPForm";
+import { SectionDivider } from "@/components/SectionDivider";
 import { VenueSection } from "@/components/VenueSection";
 import { WelcomeSection } from "@/components/WelcomeSection";
 import { wedding } from "@/data/wedding";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const floatingHearts = [
+  { left: 7, top: 92, size: 18, duration: 18, delay: 0, drift: 42 },
+  { left: 18, top: 74, size: 12, duration: 22, delay: -6, drift: -28 },
+  { left: 31, top: 101, size: 15, duration: 20, delay: -13, drift: 36 },
+  { left: 44, top: 86, size: 10, duration: 24, delay: -9, drift: -22 },
+  { left: 58, top: 96, size: 17, duration: 19, delay: -3, drift: 30 },
+  { left: 72, top: 78, size: 13, duration: 23, delay: -16, drift: -38 },
+  { left: 88, top: 104, size: 19, duration: 21, delay: -11, drift: 24 },
+  { left: 13, top: 118, size: 14, duration: 26, delay: -20, drift: 32 },
+  { left: 27, top: 109, size: 11, duration: 17, delay: -2, drift: -18 },
+  { left: 39, top: 127, size: 20, duration: 25, delay: -15, drift: 40 },
+  { left: 52, top: 113, size: 12, duration: 18, delay: -7, drift: -30 },
+  { left: 66, top: 122, size: 16, duration: 22, delay: -18, drift: 20 },
+  { left: 81, top: 116, size: 10, duration: 20, delay: -5, drift: -34 },
+  { left: 94, top: 131, size: 15, duration: 27, delay: -23, drift: -26 },
+  { left: 4, top: 138, size: 13, duration: 19, delay: -12, drift: 22 },
+  { left: 23, top: 146, size: 18, duration: 24, delay: -4, drift: -40 },
+  { left: 36, top: 154, size: 11, duration: 21, delay: -17, drift: 28 },
+  { left: 49, top: 142, size: 14, duration: 23, delay: -8, drift: -24 },
+  { left: 63, top: 151, size: 19, duration: 18, delay: -21, drift: 34 },
+  { left: 77, top: 145, size: 12, duration: 26, delay: -10, drift: -16 },
+  { left: 91, top: 158, size: 16, duration: 22, delay: -1, drift: 30 },
+  { left: 10, top: 166, size: 10, duration: 20, delay: -14, drift: -20 },
+  { left: 29, top: 173, size: 17, duration: 25, delay: -19, drift: 38 },
+  { left: 47, top: 181, size: 13, duration: 19, delay: -6, drift: -32 },
+  { left: 69, top: 176, size: 15, duration: 24, delay: -22, drift: 26 },
+  { left: 86, top: 187, size: 11, duration: 21, delay: -9, drift: -36 },
+] as const;
 
 function getRoute() {
   return window.location.pathname === "/invitation" ? "/invitation" : "/";
@@ -151,14 +181,19 @@ function InvitationPage() {
       transition={{ duration: 0.6 }}
       className="min-h-screen bg-ink text-ivory"
     >
-      <div className="mx-auto max-w-[640px] bg-ivory text-ink shadow-2xl">
+      <div className="relative mx-auto max-w-[640px] overflow-hidden bg-ivory text-ink shadow-2xl">
+        <FloatingHearts />
         <HeroSection />
         <Countdown />
+        <DividerBand />
         <WelcomeSection />
         <OurStoryTimeline />
         <VenueSection />
+        <DividerBand />
         <OrderOfDay />
+        <DividerBand />
         <NoteSection />
+        <DividerBand />
         <RSVPForm />
         <footer className="bg-ivory px-6 py-12 text-center text-[#5a2e27]">
           <img
@@ -188,6 +223,42 @@ function InvitationPage() {
         </footer>
       </div>
     </motion.main>
+  );
+}
+
+function DividerBand() {
+  return (
+    <div className="relative bg-ivory px-6 py-2">
+      <SectionDivider />
+    </div>
+  );
+}
+
+function FloatingHearts() {
+  return (
+    <div
+      className="pointer-events-none fixed inset-y-0 left-1/2 z-30 w-full max-w-[640px] -translate-x-1/2 overflow-hidden"
+      aria-hidden="true"
+    >
+      {floatingHearts.map((heart, index) => (
+        <span
+          key={index}
+          className="floating-heart"
+          style={
+            {
+              "--heart-left": `${heart.left}%`,
+              "--heart-top": `${heart.top}vh`,
+              "--heart-size": `${heart.size}px`,
+              "--heart-duration": `${heart.duration}s`,
+              "--heart-delay": `${heart.delay}s`,
+              "--heart-drift": `${heart.drift}px`,
+            } as CSSProperties
+          }
+        >
+          ♥
+        </span>
+      ))}
+    </div>
   );
 }
 

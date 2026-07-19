@@ -215,3 +215,54 @@
     color: var(--color-foreground);
   }
 }
+
+.floating-heart {
+  position: absolute;
+  left: var(--heart-left);
+  top: var(--heart-top);
+  color: rgba(105, 34, 25, 0.2);
+  font-family: "Times New Roman", serif;
+  font-size: var(--heart-size);
+  line-height: 1;
+  opacity: 0;
+  text-shadow: 0 0 18px rgba(232, 170, 165, 0.26);
+  transform: translate3d(-50%, 0, 0) rotate(-12deg);
+  animation: floating-heart-rise var(--heart-duration) linear infinite;
+  animation-delay: var(--heart-delay);
+  will-change: transform, opacity;
+}
+
+.floating-heart:nth-child(3n) {
+  color: rgba(232, 170, 165, 0.24);
+}
+
+.floating-heart:nth-child(4n) {
+  color: rgba(105, 34, 25, 0.14);
+}
+
+@keyframes floating-heart-rise {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%, 0, 0) rotate(-14deg) scale(0.82);
+  }
+
+  12% {
+    opacity: 0.9;
+  }
+
+  82% {
+    opacity: 0.78;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(calc(-50% + var(--heart-drift)), -135vh, 0) rotate(22deg) scale(1.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-heart {
+    animation: none;
+    opacity: 0.18;
+  }
+}

@@ -58,7 +58,7 @@ export function RSVPForm() {
   }
 
   const inputCls =
-    "mt-2 min-h-11 w-full border-0 border-b border-[#6a312a]/45 bg-transparent px-1 py-3 font-serif-display text-base text-ink placeholder:text-ink/35 focus:border-burgundy focus:outline-none";
+    "mt-2 min-h-11 w-full border-0 border-b border-[#6a312a]/45 bg-transparent px-1 py-3 text-center font-serif-display text-base text-ink placeholder:text-center placeholder:text-ink/35 focus:border-burgundy focus:outline-none";
 
   return (
     <section className="bg-ivory px-6 pb-20 pt-10 text-ink">
@@ -70,10 +70,10 @@ export function RSVPForm() {
       </div>
 
       <form onSubmit={handleSubmit} noValidate className="mx-auto mt-12 max-w-sm space-y-3">
-        <div className="rounded-[18px] border border-white/70 bg-white/60 px-4 py-4 shadow-[0_18px_42px_rgba(34,35,28,0.08)] backdrop-blur-xl">
+        <div className="rounded-[18px] border border-white/55 bg-white/28 px-4 py-4 text-center shadow-[0_18px_42px_rgba(34,35,28,0.08),inset_0_1px_0_rgba(255,255,255,0.65)] backdrop-blur-2xl">
           <label
             htmlFor="rsvp-name"
-            className="font-serif-display text-sm font-bold uppercase tracking-[0.03em] text-ink"
+            className="block font-serif-display text-sm font-bold uppercase tracking-[0.03em] text-ink"
           >
             Your name *
           </label>
@@ -86,13 +86,13 @@ export function RSVPForm() {
             className={inputCls}
             aria-invalid={!!errors.name}
           />
-          {errors.name && <p className="mt-1 text-xs text-burgundy">{errors.name}</p>}
+          {errors.name && <p className="mt-1 text-center text-xs text-burgundy">{errors.name}</p>}
         </div>
 
-        <div className="rounded-[18px] border border-white/70 bg-white/60 px-4 py-4 shadow-[0_18px_42px_rgba(34,35,28,0.08)] backdrop-blur-xl">
+        <div className="rounded-[18px] border border-white/55 bg-white/28 px-4 py-4 text-center shadow-[0_18px_42px_rgba(34,35,28,0.08),inset_0_1px_0_rgba(255,255,255,0.65)] backdrop-blur-2xl">
           <label
             htmlFor="rsvp-message"
-            className="font-serif-display text-sm font-bold uppercase tracking-[0.03em] text-ink"
+            className="block font-serif-display text-sm font-bold uppercase tracking-[0.03em] text-ink"
           >
             Write your congratulation *
           </label>
@@ -105,13 +105,15 @@ export function RSVPForm() {
             className={inputCls}
             aria-invalid={!!errors.message}
           />
-          {errors.message && <p className="mt-1 text-xs text-burgundy">{errors.message}</p>}
+          {errors.message && (
+            <p className="mt-1 text-center text-xs text-burgundy">{errors.message}</p>
+          )}
         </div>
 
         <div
           role="radiogroup"
           aria-labelledby="attending-label"
-          className="rounded-[18px] border border-white/70 bg-white/60 px-4 py-5 shadow-[0_18px_42px_rgba(34,35,28,0.08)] backdrop-blur-xl"
+          className="rounded-[18px] border border-white/55 bg-white/28 px-4 py-5 text-center shadow-[0_18px_42px_rgba(34,35,28,0.08),inset_0_1px_0_rgba(255,255,255,0.65)] backdrop-blur-2xl"
         >
           <p
             id="attending-label"
@@ -133,7 +135,9 @@ export function RSVPForm() {
               label="No"
             />
           </div>
-          {errors.attending && <p className="mt-1 text-xs text-burgundy">{errors.attending}</p>}
+          {errors.attending && (
+            <p className="mt-1 text-center text-xs text-burgundy">{errors.attending}</p>
+          )}
         </div>
 
         {status === "error" && (
@@ -165,10 +169,17 @@ function AttendanceOption({
   onChange: (value: "yes" | "no") => void;
   label: string;
 }) {
+  const selectedClass =
+    value === "yes"
+      ? "border-[#2f6f4e]/40 bg-[#2f6f4e] text-[#fffdf8] shadow-[0_0_26px_rgba(47,111,78,0.42),inset_0_1px_0_rgba(255,255,255,0.2)]"
+      : "border-[#9f2d2d]/40 bg-[#9f2d2d] text-[#fffdf8] shadow-[0_0_26px_rgba(159,45,45,0.42),inset_0_1px_0_rgba(255,255,255,0.2)]";
+
   return (
     <label
-      className={`group grid h-20 cursor-pointer place-items-center rounded-xl px-2 transition duration-300 ${
-        selected ? "text-burgundy" : "text-[#7d2820]/80 hover:text-burgundy"
+      className={`group relative grid h-20 min-w-32 cursor-pointer place-items-center rounded-md border px-4 transition duration-300 ${
+        selected
+          ? selectedClass
+          : "border-white/45 bg-white/18 text-[#7d2820]/78 shadow-[inset_0_1px_0_rgba(255,255,255,0.45)] hover:border-burgundy/20 hover:bg-white/32 hover:text-burgundy"
       }`}
       aria-label={label}
     >
@@ -183,7 +194,7 @@ function AttendanceOption({
       <span
         className={`transition duration-300 ${
           selected
-            ? "scale-105 drop-shadow-[0_0_18px_rgba(105,34,25,0.48)]"
+            ? "scale-105 drop-shadow-[0_0_18px_rgba(255,253,248,0.58)]"
             : "drop-shadow-none group-hover:scale-[1.03]"
         }`}
       >
