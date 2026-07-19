@@ -3,9 +3,9 @@ export const wedding = {
   dateISO: "2026-08-08T20:00:00+03:00",
   displayDate: "08.08.2026",
   displayTime: "8 O'Clock",
-  hero: { image: "/invitation-hero.jpg" },
+  hero: { image: "/envelope.jpg" },
   envelope: { image: "/envelope.jpg" },
-  music: "/music.mp3",
+  music: "",
   quoteAr: [
     "حتى تحترق النجوم وتفنى العوالم",
     "حتى تتصادم الكواكب وتذبل الشموس",
@@ -24,58 +24,71 @@ export const wedding = {
       title: "First Meeting",
       date: "July 2, 2024",
       textParts: [
-        { type: "en", value: "Our first day at Sumitomo. Neither of us ever imagined we'd end up here. We used to joke, “We'll never be like " },
+        {
+          type: "en",
+          value:
+            "Our first day at Sumitomo. Neither of us ever imagined we'd end up here. We used to joke, “We'll never be like ",
+        },
         { type: "ar", value: "الفلاحين دول" },
-        { type: "en", value: " who meet at work and end up getting married.” Well... here we are. 🤍😂" },
+        {
+          type: "en",
+          value: " who meet at work and end up getting married.” Well... here we are. 🤍😂",
+        },
       ],
     },
     {
       title: "Meeting Her Family",
       date: "May 9, 2025",
       textParts: [
-        { type: "en", value: "The day I met the kindest and warmest family I could have ever wished for. Uncle, Auntie, Mazen, Merhan, Marwan... and of course, Mr. Amr. 😂 That day, I didn't just meet her family—I felt like I had found another home. 🤍" },
+        {
+          type: "en",
+          value:
+            "The day I met the kindest and warmest family I could have ever wished for. Uncle, Auntie, Mazen, Merhan, Marwan... and of course, Mr. Amr. 😂 That day, I didn't just meet her family—I felt like I had found another home. 🤍",
+        },
       ],
     },
     {
       title: "The Ring Ceremony",
       date: "June 13, 2025",
       textParts: [
-        { type: "en", value: "While the world was busy with breaking news about the first strike between Israel and Iran, we were busy choosing our rings. 😂 Honestly, it felt like the whole world was about to catch fire just because we decided to get married. 😂" },
+        {
+          type: "en",
+          value:
+            "While the world was busy with breaking news about the first strike between Israel and Iran, we were busy choosing our rings. 😂 Honestly, it felt like the whole world was about to catch fire just because we decided to get married. 😂",
+        },
       ],
     },
     {
       title: "Our Engagement",
       date: "August 1, 2025",
       textParts: [
-        { type: "en", value: "Without a doubt, one of the most beautiful days of our lives... if not the most beautiful one. ♥️ A day filled with love, laughter, happy tears, and the promise of forever." },
+        {
+          type: "en",
+          value:
+            "Without a doubt, one of the most beautiful days of our lives... if not the most beautiful one. ♥️ A day filled with love, laughter, happy tears, and the promise of forever.",
+        },
       ],
     },
     {
       title: "The Day of Our Forever",
       date: "August 8, 2026",
       textParts: [
-        { type: "en", value: "The day you'll stand beside us as we close one beautiful chapter and begin the most meaningful one of our lives. Our forever story begins here, and it wouldn't feel complete without you celebrating it with us. 🤍" },
+        {
+          type: "en",
+          value:
+            "The day you'll stand beside us as we close one beautiful chapter and begin the most meaningful one of our lives. Our forever story begins here, and it wouldn't feel complete without you celebrating it with us. 🤍",
+        },
       ],
     },
   ] as const,
-  gallery: [
-    "/story/01.jpg",
-    "/story/02.jpg",
-    "/story/03.jpg",
-    "/story/04.jpg",
-    "/story/05.jpg",
-    "/story/06.jpg",
-    "/story/07.jpg",
-    "/story/08.jpg",
-  ],
+  gallery: [] as string[],
   venue: {
     startsAt: "8 PM",
     endsAt: "11 PM",
     name: "AQUA HOUSE CLUB",
     lines: ["KORNISH EL MAADI", "VENICIA"],
-    qr: "/location-qr.png",
-    mapsUrl:
-      "https://www.google.com/maps?q=29.9400801,31.2742301&z=17&hl=en",
+    qr: "/qrcode.png",
+    mapsUrl: "https://www.google.com/maps?q=29.9400801,31.2742301&z=17&hl=en",
   },
   schedule: [
     { time: "8:00 PM", title: "Reception", note: "Guest arrival" },

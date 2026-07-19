@@ -56,9 +56,7 @@ export function OrderOfDay() {
                 {item.time}
               </div>
               <h3 className="mt-1 font-serif-display text-xl text-ink">{item.title}</h3>
-              {item.note && (
-                <p className="mt-0.5 text-sm italic text-ink/60">{item.note}</p>
-              )}
+              {item.note && <p className="mt-0.5 text-sm italic text-ink/60">{item.note}</p>}
             </li>
           ))}
         </ol>

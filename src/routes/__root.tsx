@@ -78,9 +78,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Mohanad & Menna — 08.08.2026" },
-      { name: "description", content: "Join us as we celebrate the beginning of our forever — 08.08.2026." },
+      {
+        name: "description",
+        content: "Join us as we celebrate the beginning of our forever — 08.08.2026.",
+      },
       { property: "og:title", content: "Mohanad & Menna — 08.08.2026" },
-      { property: "og:description", content: "Our wedding invitation. With love, Mohanad & Menna." },
+      {
+        property: "og:description",
+        content: "Our wedding invitation. With love, Mohanad & Menna.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

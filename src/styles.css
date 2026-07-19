@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Noto+Naskh+Arabic:wght@400;500;600&display=swap");
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
@@ -5,11 +6,11 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-ink: #22231C;
-  --color-ivory: #F0F1E7;
-  --color-blush: #E8AAA5;
+  --color-ink: #22231c;
+  --color-ivory: #f0f1e7;
+  --color-blush: #e8aaa5;
   --color-burgundy: #692219;
-  --color-paper: #FFFDF8;
+  --color-paper: #fffdf8;
   --font-script: "Great Vibes", cursive;
   --font-serif-display: "Cormorant Garamond", serif;
   --font-arabic: "Noto Naskh Arabic", serif;

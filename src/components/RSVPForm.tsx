@@ -15,9 +15,7 @@ export function RSVPForm() {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
   const [attending, setAttending] = useState<"yes" | "no" | "">("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
-    "idle",
-  );
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -31,7 +29,11 @@ export function RSVPForm() {
 
     setStatus("loading");
     try {
-      await submitRSVP({ name: name.trim(), message: message.trim(), attending: attending as "yes" | "no" });
+      await submitRSVP({
+        name: name.trim(),
+        message: message.trim(),
+        attending: attending as "yes" | "no",
+      });
       setStatus("success");
     } catch {
       setStatus("error");
@@ -67,7 +69,10 @@ export function RSVPForm() {
 
       <form onSubmit={handleSubmit} noValidate className="mx-auto mt-10 max-w-md space-y-6">
         <div>
-          <label htmlFor="rsvp-name" className="text-[11px] uppercase tracking-[0.35em] text-ink/60">
+          <label
+            htmlFor="rsvp-name"
+            className="text-[11px] uppercase tracking-[0.35em] text-ink/60"
+          >
             Your name *
           </label>
           <input
@@ -83,7 +88,10 @@ export function RSVPForm() {
         </div>
 
         <div>
-          <label htmlFor="rsvp-message" className="text-[11px] uppercase tracking-[0.35em] text-ink/60">
+          <label
+            htmlFor="rsvp-message"
+            className="text-[11px] uppercase tracking-[0.35em] text-ink/60"
+          >
             Write your congratulation *
           </label>
           <textarea
@@ -138,7 +146,13 @@ export function RSVPForm() {
           disabled={status === "loading"}
           className="flex min-h-12 w-full items-center justify-center gap-2 rounded-md bg-ink px-6 py-3 font-serif-display uppercase tracking-[0.35em] text-ivory transition hover:bg-burgundy disabled:opacity-60"
         >
-          {status === "loading" ? "Sending..." : (<><Send className="h-4 w-4" /> Send</>)}
+          {status === "loading" ? (
+            "Sending..."
+          ) : (
+            <>
+              <Send className="h-4 w-4" /> Send
+            </>
+          )}
         </button>
       </form>
     </section>

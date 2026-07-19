@@ -8,6 +8,10 @@ export function MusicToggle({ src }: { src: string }) {
   const [available, setAvailable] = useState(true);
 
   useEffect(() => {
+    if (!src) {
+      setAvailable(false);
+      return;
+    }
     const a = new Audio(src);
     a.loop = true;
     a.volume = 0.5;
@@ -35,7 +39,7 @@ export function MusicToggle({ src }: { src: string }) {
     }
   };
 
-  if (!available) return null;
+  if (!src || !available) return null;
 
   return (
     <motion.button

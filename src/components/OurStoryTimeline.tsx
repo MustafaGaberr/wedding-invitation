@@ -80,12 +80,8 @@ export function OurStoryTimeline() {
                 transition={{ duration: 0.7, ease: "easeOut" }}
                 className="rounded-md border border-ink/10 bg-paper p-5 shadow-sm"
               >
-                <p className="text-[10px] uppercase tracking-[0.35em] text-ink/50">
-                  {event.date}
-                </p>
-                <h3 className="mt-2 font-serif-display text-2xl text-burgundy">
-                  {event.title}
-                </h3>
+                <p className="text-[10px] uppercase tracking-[0.35em] text-ink/50">{event.date}</p>
+                <h3 className="mt-2 font-serif-display text-2xl text-burgundy">{event.title}</h3>
                 <p className="mt-3 font-serif-display text-[15px] leading-relaxed text-ink/85">
                   {event.textParts.map((part, idx) =>
                     part.type === "ar" ? (

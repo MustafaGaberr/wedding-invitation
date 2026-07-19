@@ -20,7 +20,7 @@ function Card({
   offset,
   onSwipe,
 }: {
-  src: string;
+  src?: string;
   index: number;
   offset: number;
   onSwipe: () => void;
@@ -53,7 +53,7 @@ function Card({
       whileDrag={{ rotate: 0 }}
       transition={{ type: "spring", stiffness: 240, damping: 26 }}
     >
-      {failed ? (
+      {!src || failed ? (
         <Placeholder index={index + 1} />
       ) : (
         <img
@@ -70,21 +70,21 @@ function Card({
 
 export function StoryGallery() {
   const [index, setIndex] = useState(0);
-  const cards = wedding.gallery;
+  const cards = wedding.gallery.length
+    ? wedding.gallery.map((src) => ({ src }))
+    : Array.from({ length: 8 }, () => ({ src: undefined }));
   const next = () => setIndex((i) => (i + 1) % cards.length);
   const prev = () => setIndex((i) => (i - 1 + cards.length) % cards.length);
 
   const visible = [0, 1, 2].map((k) => {
     const i = (index + k) % cards.length;
-    return { src: cards[i], i, offset: k };
+    return { src: cards[i]?.src, i, offset: k };
   });
 
   return (
     <section className="bg-ivory px-6 pb-24 pt-4 text-ink">
       <div className="mx-auto max-w-md text-center">
-        <p className="text-[10px] uppercase tracking-[0.5em] text-ink/50">
-          Moments together
-        </p>
+        <p className="text-[10px] uppercase tracking-[0.5em] text-ink/50">Moments together</p>
         <h2 className="mt-3 font-script text-5xl text-burgundy">A little album</h2>
       </div>
 
@@ -94,13 +94,7 @@ export function StoryGallery() {
             .slice()
             .reverse()
             .map((c) => (
-              <Card
-                key={c.i}
-                src={c.src}
-                index={c.i}
-                offset={c.offset}
-                onSwipe={next}
-              />
+              <Card key={c.i} src={c.src} index={c.i} offset={c.offset} onSwipe={next} />
             ))}
         </AnimatePresence>
       </div>
@@ -113,9 +107,7 @@ export function StoryGallery() {
         >
           <ChevronLeft className="h-5 w-5" />
         </button>
-        <p className="text-[10px] uppercase tracking-[0.35em] text-ink/50">
-          Drag to explore
-        </p>
+        <p className="text-[10px] uppercase tracking-[0.35em] text-ink/50">Drag to explore</p>
         <button
           onClick={next}
           aria-label="Next photo"
