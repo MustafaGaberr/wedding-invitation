@@ -56,7 +56,7 @@ export function RSVPForm() {
           <div className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-burgundy text-ivory shadow-[0_0_24px_rgba(105,34,25,0.26)]">
             <Check className="h-5 w-5" />
           </div>
-          <p className="mt-6 font-script text-3xl text-burgundy">وصلت للعريس بنجاح! عقبالكوا 🎉</p>
+          <p className="mt-6 font-script text-3xl text-burgundy">وصلت للعرسان بنجاح عقبالكوا 🎉</p>
         </div>
       </section>
     );
