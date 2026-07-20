@@ -37,11 +37,11 @@ export default async function handler(req, res) {
   }
 
   const text = [
-    "🔔 رسالة تهنئة جديدة!",
+    "♥️ رسالة تهنئة جديدة ياعيال",
     "",
     `👤 الاسم: ${name.slice(0, 120)}`,
     `💬 الرسالة: ${message.slice(0, 1500)}`,
-    `✅ الحضور: ${attendanceLabels[attending]}`,
+    `🏃🏻 هتحضر ولا لا: ${attendanceLabels[attending]}`,
   ].join("\n");
 
   try {
