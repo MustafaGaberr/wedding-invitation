@@ -8,9 +8,16 @@ interface RSVPData {
   attending: "yes" | "no";
 }
 
-async function submitRSVP(_data: RSVPData): Promise<void> {
-  // Wire this to a Google Sheets/Notes endpoint when the final destination is ready.
-  await new Promise((r) => setTimeout(r, 900));
+async function submitRSVP(data: RSVPData): Promise<void> {
+  const response = await fetch("/api/send-rsvp", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to send RSVP");
+  }
 }
 
 export function RSVPForm() {
@@ -49,9 +56,7 @@ export function RSVPForm() {
           <div className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-burgundy text-ivory shadow-[0_0_24px_rgba(105,34,25,0.26)]">
             <Check className="h-5 w-5" />
           </div>
-          <p className="mt-6 font-script text-3xl text-burgundy">
-            Thank you! Your message has been received
-          </p>
+          <p className="mt-6 font-script text-3xl text-burgundy">وصلت للعريس بنجاح! عقبالكوا 🎉</p>
         </div>
       </section>
     );
@@ -142,7 +147,7 @@ export function RSVPForm() {
 
         {status === "error" && (
           <div className="flex items-center gap-2 rounded-md border border-burgundy/40 bg-burgundy/10 px-3 py-2 text-sm text-burgundy">
-            <X className="h-4 w-4" /> Something went wrong. Please try again.
+            <X className="h-4 w-4" /> الرسالة موصلتش. جرب تاني بعد لحظة.
           </div>
         )}
 

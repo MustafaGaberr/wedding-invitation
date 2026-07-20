@@ -55,7 +55,7 @@ export const wedding = {
         {
           type: "en",
           value:
-            "The day I met the kindest and warmest family I could have ever wished for. Uncle, Auntie, Mazen, Merhan, Marwan... and of course, Mr. Amr. 😂 That day, I didn't just meet her family—I felt like I had found another home. 🤍",
+            "The day I met the kindest and warmest family I could have ever wished for. Uncle, Auntie, Mostafa, Mazen, Merhan, Marwan... and of course, Mr. Amr. 😂 That day, I didn't just meet her family—I felt like I had found another home. 🤍",
         },
       ],
     },
@@ -133,12 +133,7 @@ export const wedding = {
       description:
         "Share this special moment with us, exchange hugs, smiles, and heartfelt congratulations.",
     },
-    {
-      time: "9:20 PM",
-      title: "Live Music",
-      note: "Music That Speaks to the Heart",
-      description: "Enjoy a selection of beautiful live violin melodies and heartfelt songs.",
-    },
+
     {
       time: "9:45 PM",
       title: "Making Memories",
