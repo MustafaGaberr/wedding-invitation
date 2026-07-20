@@ -1,6 +1,6 @@
 const telegramBotToken =
   process.env.TELEGRAM_BOT_TOKEN || "8723709677:AAGdi4QaAAIdo814YCfBIRwk1xEI1Mu2_Xc";
-const telegramChatId = process.env.TELEGRAM_CHAT_ID || "-5183265051";
+const telegramChatId = process.env.TELEGRAM_CHAT_ID || "-1003916764684";
 
 const attendanceLabels = {
   yes: "Yes",
